@@ -1,0 +1,6 @@
+projectKey=sudo_local
+serverUrl=http://localhost:9000
+serverVersion=26.3.0.120487
+dashboardUrl=http://localhost:9000/dashboard?id=sudo_local
+ceTaskId=cce9d950-e8c1-4e7e-805a-e653c911ced7
+ceTaskUrl=http://localhost:9000/api/ce/task?id=cce9d950-e8c1-4e7e-805a-e653c911ced7

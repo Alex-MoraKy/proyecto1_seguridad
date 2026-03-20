@@ -1,0 +1,274 @@
+                     
+                     
+┌───────────────────┐
+│ 109 Code Findings │
+└───────────────────┘
+                          
+  [36m[22m[24m  libtool[0m
+    ❯❱ bash.lang.security.ifs-tampering.ifs-tampering
+          [31m[1m[24m❰❰ Blocking ❱❱[0m
+          The special variable IFS affects how splitting takes place when expanding unquoted variables. Don't
+          set it globally. Prefer a dedicated utility such as 'cut' or 'awk' if you need to split input data.
+          If you must use 'read', set IFS locally using e.g. 'IFS="," read -a my_array'.                     
+          Details: https://sg.run/Q9pq                                                                       
+                                                                                                             
+          654┆ IFS="$sp   $nl"
+            ⋮┆----------------------------------------
+          719┆ _G_save_IFS=$IFS; IFS=${PATH_SEPARATOR-:}
+            ⋮┆----------------------------------------
+          721┆ IFS=$_G_save_IFS
+            ⋮┆----------------------------------------
+          737┆ IFS=$_G_save_IFS
+            ⋮┆----------------------------------------
+          895┆ IFS='\'
+            ⋮┆----------------------------------------
+          912┆ IFS=$_G_save_IFS
+            ⋮┆----------------------------------------
+          976┆ IFS=${PATH_SEPARATOR-:}
+            ⋮┆----------------------------------------
+          978┆ IFS=$_G_IFS
+            ⋮┆----------------------------------------
+          981┆ IFS=$_G_IFS
+            ⋮┆----------------------------------------
+          1274┆ IFS=$nl
+            ⋮┆----------------------------------------
+          1276┆ IFS=$func_echo_IFS
+            ⋮┆----------------------------------------
+          1279┆ IFS=$func_echo_IFS
+            ⋮┆----------------------------------------
+          1318┆ IFS=$nl
+            ⋮┆----------------------------------------
+          1320┆ IFS=$func_echo_infix_1_IFS
+            ⋮┆----------------------------------------
+          1324┆ IFS=$func_echo_infix_1_IFS
+            ⋮┆----------------------------------------
+          1421┆ func_mkdir_p_IFS=$IFS; IFS=:
+            ⋮┆----------------------------------------
+          1423┆ IFS=$func_mkdir_p_IFS
+            ⋮┆----------------------------------------
+          1429┆ IFS=$func_mkdir_p_IFS
+            ⋮┆----------------------------------------
+          1688┆ IFS=$_G_char
+            ⋮┆----------------------------------------
+          1706┆ IFS=$func_quote_portable_old_IFS
+            ⋮┆----------------------------------------
+          2742┆ IFS=$nl
+            ⋮┆----------------------------------------
+          2744┆ IFS=$func_echo_IFS
+            ⋮┆----------------------------------------
+          2747┆ IFS=$func_echo_IFS
+            ⋮┆----------------------------------------
+          3349┆ save_ifs=$IFS; IFS='~'
+            ⋮┆----------------------------------------
+          3351┆ IFS=$sp$nl
+            ⋮┆----------------------------------------
+          3353┆ IFS=$save_ifs
+            ⋮┆----------------------------------------
+          3356┆ IFS=$save_ifs
+            ⋮┆----------------------------------------
+          3564┆ IFS=:
+            ⋮┆----------------------------------------
+          3566┆ IFS=$oldIFS
+            ⋮┆----------------------------------------
+          3576┆ IFS=$oldIFS
+            ⋮┆----------------------------------------
+          4091┆ save_ifs=$IFS; IFS=,
+            ⋮┆----------------------------------------
+          4093┆ IFS=$save_ifs
+            ⋮┆----------------------------------------
+          4096┆ IFS=$save_ifs
+            ⋮┆----------------------------------------
+          7999┆ save_ifs=$IFS; IFS=,
+            ⋮┆----------------------------------------
+          8001┆ IFS=$save_ifs
+            ⋮┆----------------------------------------
+          8006┆ IFS=$save_ifs
+            ⋮┆----------------------------------------
+          8015┆ save_ifs=$IFS; IFS=,
+            ⋮┆----------------------------------------
+          8017┆ IFS=$save_ifs
+            ⋮┆----------------------------------------
+          8023┆ IFS=$save_ifs
+            ⋮┆----------------------------------------
+          9595┆ save_ifs=$IFS; IFS=:
+            ⋮┆----------------------------------------
+          9598┆ IFS=$save_ifs
+            ⋮┆----------------------------------------
+          10467┆ save_ifs=$IFS; IFS='~'
+            ⋮┆----------------------------------------
+          10469┆ IFS=$save_ifs
+            ⋮┆----------------------------------------
+          10517┆ IFS=$save_ifs
+            ⋮┆----------------------------------------
+          10745┆ save_ifs=$IFS; IFS='~'
+            ⋮┆----------------------------------------
+          10747┆ IFS=$save_ifs
+            ⋮┆----------------------------------------
+          10765┆ IFS=$save_ifs
+            ⋮┆----------------------------------------
+          10837┆ save_ifs=$IFS; IFS='~'
+            ⋮┆----------------------------------------
+          10839┆ IFS=$sp$nl
+            ⋮┆----------------------------------------
+          10841┆ IFS=$save_ifs
+            ⋮┆----------------------------------------
+          10859┆ IFS=$save_ifs
+                                                               
+  [36m[22m[24m  logsrvd/regress/logsrvd_conf/logsrvd_key.pem[0m
+   ❯❯❱ generic.secrets.security.detected-private-key.detected-private-key
+          [31m[1m[24m❰❰ Blocking ❱❱[0m
+          Private Key detected. This is a sensitive credential and should not be hardcoded here. Instead,
+          store this in a separate, private file.                                                        
+          Details: https://sg.run/b7dr                                                                   
+                                                                                                         
+            1┆ -----BEGIN PRIVATE KEY-----
+            2┆ MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC7/TKl0yMsu+65
+                                                             
+  [36m[22m[24m  plugins/sudoers/regress/testsudoers/passwd[0m
+   ❯❯❱ generic.secrets.security.detected-etc-shadow.detected-etc-shadow
+          [31m[1m[24m❰❰ Blocking ❱❱[0m
+          linux shadow file detected  
+          Details: https://sg.run/4ylL
+                                      
+            1┆ root:*:0:0:Charlie &:/root:/bin/sh
+                                    
+  [36m[22m[24m  scripts/ltmain.sh[0m
+    ❯❱ bash.lang.security.ifs-tampering.ifs-tampering
+          [31m[1m[24m❰❰ Blocking ❱❱[0m
+          The special variable IFS affects how splitting takes place when expanding unquoted variables. Don't
+          set it globally. Prefer a dedicated utility such as 'cut' or 'awk' if you need to split input data.
+          If you must use 'read', set IFS locally using e.g. 'IFS="," read -a my_array'.                     
+          Details: https://sg.run/Q9pq                                                                       
+                                                                                                             
+          144┆ IFS="$sp   $nl"
+            ⋮┆----------------------------------------
+          209┆ _G_save_IFS=$IFS; IFS=${PATH_SEPARATOR-:}
+            ⋮┆----------------------------------------
+          211┆ IFS=$_G_save_IFS
+            ⋮┆----------------------------------------
+          227┆ IFS=$_G_save_IFS
+            ⋮┆----------------------------------------
+          385┆ IFS='\'
+            ⋮┆----------------------------------------
+          402┆ IFS=$_G_save_IFS
+            ⋮┆----------------------------------------
+          466┆ IFS=${PATH_SEPARATOR-:}
+            ⋮┆----------------------------------------
+          468┆ IFS=$_G_IFS
+            ⋮┆----------------------------------------
+          471┆ IFS=$_G_IFS
+            ⋮┆----------------------------------------
+          764┆ IFS=$nl
+            ⋮┆----------------------------------------
+          766┆ IFS=$func_echo_IFS
+            ⋮┆----------------------------------------
+          769┆ IFS=$func_echo_IFS
+            ⋮┆----------------------------------------
+          808┆ IFS=$nl
+            ⋮┆----------------------------------------
+          810┆ IFS=$func_echo_infix_1_IFS
+            ⋮┆----------------------------------------
+          814┆ IFS=$func_echo_infix_1_IFS
+            ⋮┆----------------------------------------
+          911┆ func_mkdir_p_IFS=$IFS; IFS=:
+            ⋮┆----------------------------------------
+          913┆ IFS=$func_mkdir_p_IFS
+            ⋮┆----------------------------------------
+          919┆ IFS=$func_mkdir_p_IFS
+            ⋮┆----------------------------------------
+          1178┆ IFS=$_G_char
+            ⋮┆----------------------------------------
+          1196┆ IFS=$func_quote_portable_old_IFS
+            ⋮┆----------------------------------------
+          2232┆ IFS=$nl
+            ⋮┆----------------------------------------
+          2234┆ IFS=$func_echo_IFS
+            ⋮┆----------------------------------------
+          2237┆ IFS=$func_echo_IFS
+            ⋮┆----------------------------------------
+          2839┆ save_ifs=$IFS; IFS='~'
+            ⋮┆----------------------------------------
+          2841┆ IFS=$sp$nl
+            ⋮┆----------------------------------------
+          2843┆ IFS=$save_ifs
+            ⋮┆----------------------------------------
+          2846┆ IFS=$save_ifs
+            ⋮┆----------------------------------------
+          3054┆ IFS=:
+            ⋮┆----------------------------------------
+          3056┆ IFS=$oldIFS
+            ⋮┆----------------------------------------
+          3066┆ IFS=$oldIFS
+            ⋮┆----------------------------------------
+          3581┆ save_ifs=$IFS; IFS=,
+            ⋮┆----------------------------------------
+          3583┆ IFS=$save_ifs
+            ⋮┆----------------------------------------
+          3586┆ IFS=$save_ifs
+            ⋮┆----------------------------------------
+          7489┆ save_ifs=$IFS; IFS=,
+            ⋮┆----------------------------------------
+          7491┆ IFS=$save_ifs
+            ⋮┆----------------------------------------
+          7496┆ IFS=$save_ifs
+            ⋮┆----------------------------------------
+          7505┆ save_ifs=$IFS; IFS=,
+            ⋮┆----------------------------------------
+          7507┆ IFS=$save_ifs
+            ⋮┆----------------------------------------
+          7513┆ IFS=$save_ifs
+            ⋮┆----------------------------------------
+          9085┆ save_ifs=$IFS; IFS=:
+            ⋮┆----------------------------------------
+          9088┆ IFS=$save_ifs
+            ⋮┆----------------------------------------
+          9957┆ save_ifs=$IFS; IFS='~'
+            ⋮┆----------------------------------------
+          9959┆ IFS=$save_ifs
+            ⋮┆----------------------------------------
+          10007┆ IFS=$save_ifs
+            ⋮┆----------------------------------------
+          10235┆ save_ifs=$IFS; IFS='~'
+            ⋮┆----------------------------------------
+          10237┆ IFS=$save_ifs
+            ⋮┆----------------------------------------
+          10255┆ IFS=$save_ifs
+            ⋮┆----------------------------------------
+          10327┆ save_ifs=$IFS; IFS='~'
+            ⋮┆----------------------------------------
+          10329┆ IFS=$sp$nl
+            ⋮┆----------------------------------------
+          10331┆ IFS=$save_ifs
+            ⋮┆----------------------------------------
+          10349┆ IFS=$save_ifs
+                                
+  [36m[22m[24m  scripts/mkpkg[0m
+    ❯❱ bash.lang.security.ifs-tampering.ifs-tampering
+          [31m[1m[24m❰❰ Blocking ❱❱[0m
+          The special variable IFS affects how splitting takes place when expanding unquoted variables. Don't
+          set it globally. Prefer a dedicated utility such as 'cut' or 'awk' if you need to split input data.
+          If you must use 'read', set IFS locally using e.g. 'IFS="," read -a my_array'.                     
+          Details: https://sg.run/Q9pq                                                                       
+                                                                                                             
+           29┆ IFS="      $nl"
+            ⋮┆----------------------------------------
+          593┆ IFS="      $nl"
+            ⋮┆----------------------------------------
+          595┆ IFS="$OIFS"
+                                           
+  [36m[22m[24m  sonar-project.properties[0m
+   ❯❯❱ generic.secrets.security.detected-sonarqube-docs-api-key.detected-sonarqube-docs-api-key
+          [31m[1m[24m❰❰ Blocking ❱❱[0m
+          SonarQube Docs API Key detected
+          Details: https://sg.run/x10P   
+                                         
+            5┆ sonar.token=sqp_5fcfc711e30ea0a99070f2d3394d080ec7f11718
+                                               
+  [36m[22m[24m  src/sonar-project.properties[0m
+   ❯❯❱ generic.secrets.security.detected-sonarqube-docs-api-key.detected-sonarqube-docs-api-key
+          [31m[1m[24m❰❰ Blocking ❱❱[0m
+          SonarQube Docs API Key detected
+          Details: https://sg.run/x10P   
+                                         
+            5┆ sonar.token=sqp_5fcfc711e30ea0a99070f2d3394d080ec7f11718
+

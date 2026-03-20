@@ -1,0 +1,14 @@
+                  
+                  
+┌────────────────┐
+│ 1 Code Finding │
+└────────────────┘
+                                               
+  [36m[22m[24m  src/sonar-project.properties[0m
+   ❯❯❱ generic.secrets.security.detected-sonarqube-docs-api-key.detected-sonarqube-docs-api-key
+          [31m[1m[24m❰❰ Blocking ❱❱[0m
+          SonarQube Docs API Key detected
+          Details: https://sg.run/x10P   
+                                         
+            5┆ sonar.token=sqp_5fcfc711e30ea0a99070f2d3394d080ec7f11718
+
