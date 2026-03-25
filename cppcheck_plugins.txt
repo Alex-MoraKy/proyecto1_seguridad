@@ -1,0 +1,413 @@
+plugins/audit_json/audit_json.c:0:0: information: Limiting analysis of branches. Use --check-level=exhaustive to analyze all branches. [normalCheckLevelMaxBranches]
+
+^
+plugins/group_file/plugin_test.c:0:0: information: Limiting analysis of branches. Use --check-level=exhaustive to analyze all branches. [normalCheckLevelMaxBranches]
+
+^
+plugins/python/pyhelpers.c:0:0: information: Limiting analysis of branches. Use --check-level=exhaustive to analyze all branches. [normalCheckLevelMaxBranches]
+
+^
+plugins/python/python_plugin_approval.c:0:0: information: Limiting analysis of branches. Use --check-level=exhaustive to analyze all branches. [normalCheckLevelMaxBranches]
+
+^
+plugins/python/python_plugin_audit.c:0:0: information: Limiting analysis of branches. Use --check-level=exhaustive to analyze all branches. [normalCheckLevelMaxBranches]
+
+^
+plugins/python/python_plugin_common.c:0:0: information: Limiting analysis of branches. Use --check-level=exhaustive to analyze all branches. [normalCheckLevelMaxBranches]
+
+^
+plugins/python/python_plugin_io.c:0:0: information: Limiting analysis of branches. Use --check-level=exhaustive to analyze all branches. [normalCheckLevelMaxBranches]
+
+^
+plugins/python/python_plugin_policy.c:0:0: information: Limiting analysis of branches. Use --check-level=exhaustive to analyze all branches. [normalCheckLevelMaxBranches]
+
+^
+plugins/python/regress/check_python_examples.c:0:0: information: Limiting analysis of branches. Use --check-level=exhaustive to analyze all branches. [normalCheckLevelMaxBranches]
+
+^
+plugins/python/regress/testhelpers.c:0:0: information: Limiting analysis of branches. Use --check-level=exhaustive to analyze all branches. [normalCheckLevelMaxBranches]
+
+^
+plugins/sample/sample_plugin.c:0:0: information: Limiting analysis of branches. Use --check-level=exhaustive to analyze all branches. [normalCheckLevelMaxBranches]
+
+^
+plugins/sample/sample_plugin.c:162:19: warning: If memory allocation fails, then there is a possible null pointer dereference: path [nullPointerOutOfMemory]
+ if ((cp = strchr(path, ':')))
+                  ^
+plugins/sample/sample_plugin.c:160:26: note: Assuming allocation function fails
+    path = path0 = strdup(path ? path : _PATH_DEFPATH);
+                         ^
+plugins/sample/sample_plugin.c:160:18: note: Assignment 'path=path0=strdup(path?path:_PATH_DEFPATH)', assigned value is 0
+    path = path0 = strdup(path ? path : _PATH_DEFPATH);
+                 ^
+plugins/sample/sample_plugin.c:162:19: note: Null pointer dereference
+ if ((cp = strchr(path, ':')))
+                  ^
+plugins/sample/sample_plugin.c:164:47: warning: If memory allocation fails, then there is a possible null pointer dereference: path [nullPointerOutOfMemory]
+ snprintf(pathbuf, sizeof(pathbuf), "%s/%s", *path ? path : ".",
+                                              ^
+plugins/sample/sample_plugin.c:160:26: note: Assuming allocation function fails
+    path = path0 = strdup(path ? path : _PATH_DEFPATH);
+                         ^
+plugins/sample/sample_plugin.c:160:18: note: Assignment 'path=path0=strdup(path?path:_PATH_DEFPATH)', assigned value is 0
+    path = path0 = strdup(path ? path : _PATH_DEFPATH);
+                 ^
+plugins/sample/sample_plugin.c:164:47: note: Null pointer dereference
+ snprintf(pathbuf, sizeof(pathbuf), "%s/%s", *path ? path : ".",
+                                              ^
+plugins/sudoers/auth/aix_auth.c:0:0: information: Limiting analysis of branches. Use --check-level=exhaustive to analyze all branches. [normalCheckLevelMaxBranches]
+
+^
+plugins/sudoers/auth/bsdauth.c:0:0: information: Limiting analysis of branches. Use --check-level=exhaustive to analyze all branches. [normalCheckLevelMaxBranches]
+
+^
+plugins/sudoers/auth/dce.c:148:63: error: Uninitialized variable: temp_pw [uninitvar]
+     sec_login_get_pwent(login_context, (sec_login_passwd_t) &temp_pw,
+                                                              ^
+plugins/sudoers/auth/kerb5.c:127:2: error: Memory pointed to by 'pname' is freed twice. [doubleFree]
+ free(pname);
+ ^
+plugins/sudoers/auth/kerb5.c:124:6: note: Memory pointed to by 'pname' is freed twice.
+     free(pname);
+     ^
+plugins/sudoers/auth/kerb5.c:127:2: note: Memory pointed to by 'pname' is freed twice.
+ free(pname);
+ ^
+plugins/sudoers/auth/pam.c:0:0: information: Limiting analysis of branches. Use --check-level=exhaustive to analyze all branches. [normalCheckLevelMaxBranches]
+
+^
+plugins/sudoers/auth/rfc1938.c:0:0: information: Limiting analysis of branches. Use --check-level=exhaustive to analyze all branches. [normalCheckLevelMaxBranches]
+
+^
+plugins/sudoers/bsm_audit.c:0:0: information: Limiting analysis of branches. Use --check-level=exhaustive to analyze all branches. [normalCheckLevelMaxBranches]
+
+^
+plugins/sudoers/bsm_audit.c:119:35: error: Uninitialized variable: au_cond [uninitvar]
+ if (auditon(A_GETCOND, (caddr_t)&au_cond, sizeof(long)) < 0) {
+                                  ^
+plugins/sudoers/bsm_audit.c:211:35: error: Uninitialized variable: au_cond [uninitvar]
+ if (auditon(A_GETCOND, (caddr_t)&au_cond, sizeof(long)) < 0) {
+                                  ^
+plugins/sudoers/bsm_audit.c:87:38: error: Using pointer to local variable 'ainfo' that is out of scope. [invalidLifetime]
+ rc = au_preselect(sudo_audit_event, mask, sorf, AU_PRS_REREAD);
+                                     ^
+plugins/sudoers/bsm_audit.c:77:11: note: Address of variable taken here.
+   mask = &ainfo.ai_mask;
+          ^
+plugins/sudoers/bsm_audit.c:70:16: note: Variable created here.
+   auditinfo_t ainfo;
+               ^
+plugins/sudoers/bsm_audit.c:87:38: note: Using pointer to local variable 'ainfo' that is out of scope.
+ rc = au_preselect(sudo_audit_event, mask, sorf, AU_PRS_REREAD);
+                                     ^
+plugins/sudoers/check.c:0:0: information: Limiting analysis of branches. Use --check-level=exhaustive to analyze all branches. [normalCheckLevelMaxBranches]
+
+^
+plugins/sudoers/check_aliases.c:0:0: information: Limiting analysis of branches. Use --check-level=exhaustive to analyze all branches. [normalCheckLevelMaxBranches]
+
+^
+plugins/sudoers/check_aliases.c:48:16: error: Uninitialized variable: w->name [uninitvar]
+ if (strcmp(w->name, name) == 0)
+               ^
+plugins/sudoers/cvtsudoers.c:0:0: information: Limiting analysis of branches. Use --check-level=exhaustive to analyze all branches. [normalCheckLevelMaxBranches]
+
+^
+plugins/sudoers/cvtsudoers_csv.c:0:0: information: Limiting analysis of branches. Use --check-level=exhaustive to analyze all branches. [normalCheckLevelMaxBranches]
+
+^
+plugins/sudoers/cvtsudoers_json.c:0:0: information: Limiting analysis of branches. Use --check-level=exhaustive to analyze all branches. [normalCheckLevelMaxBranches]
+
+^
+plugins/sudoers/cvtsudoers_ldif.c:0:0: information: Limiting analysis of branches. Use --check-level=exhaustive to analyze all branches. [normalCheckLevelMaxBranches]
+
+^
+plugins/sudoers/cvtsudoers_ldif.c:120:33: error: Dereferencing 'encoded' after it is deallocated / released [deallocuse]
+ fprintf(fp, "%s:: %s\n", name, encoded);
+                                ^
+plugins/sudoers/cvtsudoers_ldif.c:121:2: error: Memory pointed to by 'encoded' is freed twice. [doubleFree]
+ free(encoded);
+ ^
+plugins/sudoers/cvtsudoers_ldif.c:117:6: note: Memory pointed to by 'encoded' is freed twice.
+     free(encoded);
+     ^
+plugins/sudoers/cvtsudoers_ldif.c:121:2: note: Memory pointed to by 'encoded' is freed twice.
+ free(encoded);
+ ^
+plugins/sudoers/cvtsudoers_merge.c:0:0: information: Limiting analysis of branches. Use --check-level=exhaustive to analyze all branches. [normalCheckLevelMaxBranches]
+
+^
+plugins/sudoers/cvtsudoers_pwutil.c:0:0: information: Limiting analysis of branches. Use --check-level=exhaustive to analyze all branches. [normalCheckLevelMaxBranches]
+
+^
+plugins/sudoers/defaults.c:0:0: information: Limiting analysis of branches. Use --check-level=exhaustive to analyze all branches. [normalCheckLevelMaxBranches]
+
+^
+plugins/sudoers/display.c:0:0: information: Limiting analysis of branches. Use --check-level=exhaustive to analyze all branches. [normalCheckLevelMaxBranches]
+
+^
+plugins/sudoers/editor.c:0:0: information: Limiting analysis of branches. Use --check-level=exhaustive to analyze all branches. [normalCheckLevelMaxBranches]
+
+^
+plugins/sudoers/env.c:0:0: information: Limiting analysis of branches. Use --check-level=exhaustive to analyze all branches. [normalCheckLevelMaxBranches]
+
+^
+plugins/sudoers/env_pattern.c:0:0: information: Limiting analysis of branches. Use --check-level=exhaustive to analyze all branches. [normalCheckLevelMaxBranches]
+
+^
+plugins/sudoers/filedigest.c:89:2: error: Used file that is not opened. [useClosedFile]
+ fclose(fp);
+ ^
+plugins/sudoers/find_path.c:0:0: information: Limiting analysis of branches. Use --check-level=exhaustive to analyze all branches. [normalCheckLevelMaxBranches]
+
+^
+plugins/sudoers/fmtsudoers.c:0:0: information: Limiting analysis of branches. Use --check-level=exhaustive to analyze all branches. [normalCheckLevelMaxBranches]
+
+^
+plugins/sudoers/fmtsudoers_cvt.c:0:0: information: Limiting analysis of branches. Use --check-level=exhaustive to analyze all branches. [normalCheckLevelMaxBranches]
+
+^
+plugins/sudoers/getdate.c:0:0: information: Limiting analysis of branches. Use --check-level=exhaustive to analyze all branches. [normalCheckLevelMaxBranches]
+
+^
+getdate.c:1129:9: error: syntax error [syntaxError]
+
+        ^
+plugins/sudoers/gram.c:0:0: information: Limiting analysis of branches. Use --check-level=exhaustive to analyze all branches. [normalCheckLevelMaxBranches]
+
+^
+gram.c:1492:9: error: syntax error [syntaxError]
+
+        ^
+gram.y:2027:3: error: There is an unknown macro here somewhere. Configuration is required. If HLTQ_FOREACH_SAFE is a macro then please configure it. [unknownMacro]
+
+  ^
+plugins/sudoers/iolog.c:0:0: information: Limiting analysis of branches. Use --check-level=exhaustive to analyze all branches. [normalCheckLevelMaxBranches]
+
+^
+plugins/sudoers/ldap.c:0:0: information: Limiting analysis of branches. Use --check-level=exhaustive to analyze all branches. [normalCheckLevelMaxBranches]
+
+^
+plugins/sudoers/ldap_conf.c:0:0: information: Limiting analysis of branches. Use --check-level=exhaustive to analyze all branches. [normalCheckLevelMaxBranches]
+
+^
+plugins/sudoers/ldap_innetgr.c:0:0: information: Limiting analysis of branches. Use --check-level=exhaustive to analyze all branches. [normalCheckLevelMaxBranches]
+
+^
+plugins/sudoers/ldap_util.c:0:0: information: Limiting analysis of branches. Use --check-level=exhaustive to analyze all branches. [normalCheckLevelMaxBranches]
+
+^
+plugins/sudoers/log_client.c:1548:61: error: syntax error [syntaxError]
+ if (sudo_timespeccmp(&closure->elapsed, &closure->committed, ==)) {
+                                                            ^
+plugins/sudoers/logging.c:0:0: information: Limiting analysis of branches. Use --check-level=exhaustive to analyze all branches. [normalCheckLevelMaxBranches]
+
+^
+plugins/sudoers/lookup.c:0:0: information: Limiting analysis of branches. Use --check-level=exhaustive to analyze all branches. [normalCheckLevelMaxBranches]
+
+^
+plugins/sudoers/match.c:0:0: information: Limiting analysis of branches. Use --check-level=exhaustive to analyze all branches. [normalCheckLevelMaxBranches]
+
+^
+plugins/sudoers/match_command.c:0:0: information: Limiting analysis of branches. Use --check-level=exhaustive to analyze all branches. [normalCheckLevelMaxBranches]
+
+^
+plugins/sudoers/parse_ldif.c:0:0: information: Limiting analysis of branches. Use --check-level=exhaustive to analyze all branches. [normalCheckLevelMaxBranches]
+
+^
+plugins/sudoers/policy.c:0:0: information: Limiting analysis of branches. Use --check-level=exhaustive to analyze all branches. [normalCheckLevelMaxBranches]
+
+^
+plugins/sudoers/prompt.c:0:0: information: Limiting analysis of branches. Use --check-level=exhaustive to analyze all branches. [normalCheckLevelMaxBranches]
+
+^
+plugins/sudoers/pwutil.c:0:0: information: Limiting analysis of branches. Use --check-level=exhaustive to analyze all branches. [normalCheckLevelMaxBranches]
+
+^
+plugins/sudoers/pwutil_impl.c:0:0: information: Limiting analysis of branches. Use --check-level=exhaustive to analyze all branches. [normalCheckLevelMaxBranches]
+
+^
+plugins/sudoers/redblack.c:0:0: information: Limiting analysis of branches. Use --check-level=exhaustive to analyze all branches. [normalCheckLevelMaxBranches]
+
+^
+plugins/sudoers/regress/check_symbols/check_symbols.c:0:0: information: Limiting analysis of branches. Use --check-level=exhaustive to analyze all branches. [normalCheckLevelMaxBranches]
+
+^
+plugins/sudoers/regress/editor/check_editor.c:0:0: information: Limiting analysis of branches. Use --check-level=exhaustive to analyze all branches. [normalCheckLevelMaxBranches]
+
+^
+plugins/sudoers/regress/env_match/check_env_pattern.c:0:0: information: Limiting analysis of branches. Use --check-level=exhaustive to analyze all branches. [normalCheckLevelMaxBranches]
+
+^
+plugins/sudoers/regress/exptilde/check_exptilde.c:0:0: information: Limiting analysis of branches. Use --check-level=exhaustive to analyze all branches. [normalCheckLevelMaxBranches]
+
+^
+plugins/sudoers/regress/fuzz/fuzz_policy.c:0:0: information: Limiting analysis of branches. Use --check-level=exhaustive to analyze all branches. [normalCheckLevelMaxBranches]
+
+^
+plugins/sudoers/regress/iolog_plugin/check_iolog_plugin.c:0:0: information: Limiting analysis of branches. Use --check-level=exhaustive to analyze all branches. [normalCheckLevelMaxBranches]
+
+^
+plugins/sudoers/regress/iolog_plugin/check_iolog_plugin.c:350:2: error: Resource leak: fp [resourceLeak]
+ return;
+ ^
+plugins/sudoers/regress/iolog_plugin/check_iolog_plugin.c:355:2: error: Resource leak: fp [resourceLeak]
+ return;
+ ^
+plugins/sudoers/regress/iolog_plugin/check_iolog_plugin.c:357:1: error: Resource leak: fp [resourceLeak]
+}
+^
+plugins/sudoers/regress/parser/check_addr.c:0:0: information: Limiting analysis of branches. Use --check-level=exhaustive to analyze all branches. [normalCheckLevelMaxBranches]
+
+^
+plugins/sudoers/regress/parser/check_addr.c:120:38: warning: If resource allocation fails, then there is a possible null pointer dereference: fp [nullPointerOutOfResources]
+    while (fgets(line, sizeof(line), fp) != NULL) {
+                                     ^
+plugins/sudoers/regress/parser/check_addr.c:101:15: note: Assuming allocation function fails
+    fp = fopen(argv[0], "r");
+              ^
+plugins/sudoers/regress/parser/check_addr.c:101:15: note: Assignment 'fp=fopen(argv[0],"r")', assigned value is 0
+    fp = fopen(argv[0], "r");
+              ^
+plugins/sudoers/regress/parser/check_addr.c:120:38: note: Null pointer dereference
+    while (fgets(line, sizeof(line), fp) != NULL) {
+                                     ^
+plugins/sudoers/regress/parser/check_base64.c:0:0: information: Limiting analysis of branches. Use --check-level=exhaustive to analyze all branches. [normalCheckLevelMaxBranches]
+
+^
+plugins/sudoers/regress/starttime/check_starttime.c:0:0: information: Limiting analysis of branches. Use --check-level=exhaustive to analyze all branches. [normalCheckLevelMaxBranches]
+
+^
+plugins/sudoers/regress/unescape/check_unesc.c:0:0: information: Limiting analysis of branches. Use --check-level=exhaustive to analyze all branches. [normalCheckLevelMaxBranches]
+
+^
+plugins/sudoers/sssd.c:0:0: information: Limiting analysis of branches. Use --check-level=exhaustive to analyze all branches. [normalCheckLevelMaxBranches]
+
+^
+plugins/sudoers/sssd.c:588:9: error: Dereferencing 'handle' after it is deallocated / released [deallocuse]
+    if (handle->fn_send_recv == NULL) {
+        ^
+plugins/sudoers/sssd.c:591:2: error: Memory pointed to by 'handle' is freed twice. [doubleFree]
+ free(handle);
+ ^
+plugins/sudoers/sssd.c:582:2: note: Memory pointed to by 'handle' is freed twice.
+ free(handle);
+ ^
+plugins/sudoers/sssd.c:591:2: note: Memory pointed to by 'handle' is freed twice.
+ free(handle);
+ ^
+plugins/sudoers/sssd.c:597:9: error: Dereferencing 'handle' after it is deallocated / released [deallocuse]
+    if (handle->fn_send_recv_defaults == NULL) {
+        ^
+plugins/sudoers/sssd.c:600:2: error: Memory pointed to by 'handle' is freed twice. [doubleFree]
+ free(handle);
+ ^
+plugins/sudoers/sssd.c:582:2: note: Memory pointed to by 'handle' is freed twice.
+ free(handle);
+ ^
+plugins/sudoers/sssd.c:600:2: note: Memory pointed to by 'handle' is freed twice.
+ free(handle);
+ ^
+plugins/sudoers/sssd.c:606:9: error: Dereferencing 'handle' after it is deallocated / released [deallocuse]
+    if (handle->fn_free_result == NULL) {
+        ^
+plugins/sudoers/sssd.c:609:2: error: Memory pointed to by 'handle' is freed twice. [doubleFree]
+ free(handle);
+ ^
+plugins/sudoers/sssd.c:582:2: note: Memory pointed to by 'handle' is freed twice.
+ free(handle);
+ ^
+plugins/sudoers/sssd.c:609:2: note: Memory pointed to by 'handle' is freed twice.
+ free(handle);
+ ^
+plugins/sudoers/sssd.c:615:9: error: Dereferencing 'handle' after it is deallocated / released [deallocuse]
+    if (handle->fn_get_values == NULL) {
+        ^
+plugins/sudoers/sssd.c:618:2: error: Memory pointed to by 'handle' is freed twice. [doubleFree]
+ free(handle);
+ ^
+plugins/sudoers/sssd.c:582:2: note: Memory pointed to by 'handle' is freed twice.
+ free(handle);
+ ^
+plugins/sudoers/sssd.c:618:2: note: Memory pointed to by 'handle' is freed twice.
+ free(handle);
+ ^
+plugins/sudoers/sssd.c:624:9: error: Dereferencing 'handle' after it is deallocated / released [deallocuse]
+    if (handle->fn_free_values == NULL) {
+        ^
+plugins/sudoers/sssd.c:627:2: error: Memory pointed to by 'handle' is freed twice. [doubleFree]
+ free(handle);
+ ^
+plugins/sudoers/sssd.c:582:2: note: Memory pointed to by 'handle' is freed twice.
+ free(handle);
+ ^
+plugins/sudoers/sssd.c:627:2: note: Memory pointed to by 'handle' is freed twice.
+ free(handle);
+ ^
+plugins/sudoers/sssd.c:637:6: error: Memory pointed to by 'handle' is freed twice. [doubleFree]
+     free(handle);
+     ^
+plugins/sudoers/sssd.c:582:2: note: Memory pointed to by 'handle' is freed twice.
+ free(handle);
+ ^
+plugins/sudoers/sssd.c:637:6: note: Memory pointed to by 'handle' is freed twice.
+     free(handle);
+     ^
+plugins/sudoers/sudo_nss.c:0:0: information: Limiting analysis of branches. Use --check-level=exhaustive to analyze all branches. [normalCheckLevelMaxBranches]
+
+^
+plugins/sudoers/sudoers.c:0:0: information: Limiting analysis of branches. Use --check-level=exhaustive to analyze all branches. [normalCheckLevelMaxBranches]
+
+^
+plugins/sudoers/sudoers_cb.c:0:0: information: Limiting analysis of branches. Use --check-level=exhaustive to analyze all branches. [normalCheckLevelMaxBranches]
+
+^
+plugins/sudoers/sudoreplay.c:787:58: error: syntax error [syntaxError]
+     if (sudo_timespeccmp(&timing->delay, closure->offset, >)) {
+                                                         ^
+plugins/sudoers/testsudoers.c:676:5: error: There is an unknown macro here somewhere. Configuration is required. If TAILQ_FOREACH_SAFE is a macro then please configure it. [unknownMacro]
+    TAILQ_FOREACH_SAFE(def, &parsed_policy.defaults, entries, next)
+    ^
+plugins/sudoers/testsudoers_pwutil.c:0:0: information: Limiting analysis of branches. Use --check-level=exhaustive to analyze all branches. [normalCheckLevelMaxBranches]
+
+^
+plugins/sudoers/timestamp.c:118:59: error: syntax error [syntaxError]
+ if (sudo_timespeccmp(&entry->start_time, &key->start_time, !=)) {
+                                                          ^
+plugins/sudoers/toke.c:0:0: information: Limiting analysis of branches. Use --check-level=exhaustive to analyze all branches. [normalCheckLevelMaxBranches]
+
+^
+toke.c:5226:2: warning: Possible null pointer dereference: b [nullPointer]
+
+ ^
+toke.c:5119:18: note: Calling function 'sudoers_init_buffer', 1st argument '(yy_buffer_stack)?(yy_buffer_stack)[yy_buffer_stack_top]:NULL' value is 0
+
+                 ^
+toke.c:5226:2: note: Null pointer dereference
+
+ ^
+toke.c:5227:2: warning: Possible null pointer dereference: b [nullPointer]
+
+ ^
+toke.c:5119:18: note: Calling function 'sudoers_init_buffer', 1st argument '(yy_buffer_stack)?(yy_buffer_stack)[yy_buffer_stack_top]:NULL' value is 0
+
+                 ^
+toke.c:5227:2: note: Null pointer dereference
+
+ ^
+toke.c:3378:5: error: syntax error [syntaxError]
+
+    ^
+plugins/sudoers/tsdump.c:0:0: information: Limiting analysis of branches. Use --check-level=exhaustive to analyze all branches. [normalCheckLevelMaxBranches]
+
+^
+plugins/sudoers/tsgetgrpw.c:0:0: information: Limiting analysis of branches. Use --check-level=exhaustive to analyze all branches. [normalCheckLevelMaxBranches]
+
+^
+plugins/sudoers/visudo.c:588:68: error: syntax error [syntaxError]
+    if (orig_size == sb.st_size && sudo_timespeccmp(&orig_mtim, &ts, ==)) {
+                                                                   ^
+plugins/system_group/system_group.c:0:0: information: Limiting analysis of branches. Use --check-level=exhaustive to analyze all branches. [normalCheckLevelMaxBranches]
+
+^
+nofile:0:0: information: Too many #ifdef configurations - cppcheck only checks 12 configurations. Use --force to check all configurations. For more details, use --enable=information. [toomanyconfigs]
+

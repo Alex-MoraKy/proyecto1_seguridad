@@ -1,0 +1,14 @@
+                  
+                  
+┌────────────────┐
+│ 1 Code Finding │
+└────────────────┘
+                                                             
+  [36m[22m[24m  plugins/sudoers/regress/testsudoers/passwd[0m
+   ❯❯❱ generic.secrets.security.detected-etc-shadow.detected-etc-shadow
+          [31m[1m[24m❰❰ Blocking ❱❱[0m
+          linux shadow file detected  
+          Details: https://sg.run/4ylL
+                                      
+            1┆ root:*:0:0:Charlie &:/root:/bin/sh
+
